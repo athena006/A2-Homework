@@ -1,0 +1,26 @@
+monsters = {}
+
+with open ("monsters_simple.txt", "r") as file:
+    lines = file.readlines()
+    for line in lines:
+        key, value = line.strip().split(',')
+        monsters[key] = value
+
+again = True
+while again == True:
+    name = input("What monster would you like to search up?")
+    key = name
+
+    if key in monsters:
+        print(f"{key}, Description: {monsters[key]}")
+    else:
+        print(f"{key} is not found in the dictionary!")
+
+    repeat = input("Do you want to continue searching for monsters? (Y/N) ")
+    if repeat == "Y":
+        again = True
+    else:
+        again = False
+        print("Thank you for using the monsters dictionary!")
+
+
